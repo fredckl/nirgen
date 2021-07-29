@@ -1,10 +1,71 @@
 .App {
-  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  color: #ccc;
+  width: 100%;
+  margin: auto;
+}
+
+.App > div {
+  width: 100%;
+}
+
+.page {
+  margin: auto;
+  width: 100%;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.form {
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.text-center {
+  text-align: center
+}
+
+select {
+  padding: 1rem;
+}
+
+button {
+  padding: 1rem;
+  background-color: yellow;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.form-error {
+  color: rgb(230, 70, 70)
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+input {
+  display: block;
+  width: 100%;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: #444;
+  margin-left: 1rem;
+  border-radius: 10px;
+  font-size: 2rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
