@@ -1,6 +1,6 @@
 
 import luhn from './luhn';
-import { length, equals, indexOf, replace, splitAt, when, compose, propOr, head, applySpec, gt, is, tap } from 'ramda';
+import { length, equals, indexOf, replace, splitAt, when, compose, propOr, head, applySpec, gt, is } from 'ramda';
 import { getYears } from './year';
 import getMonths from './month';
 import shuffle from './shuffle';
@@ -42,7 +42,11 @@ export const generateNIR = (props) => {
     ordre: propOr(randomCent(), 'ordre')
   })(props);
 
-  return `${sex}${year}${month}${department}${comm}${ordre}${compose(when(gt(10), v => `0${v}`),luhn)(sex + year + month + department + comm + ordre)}`
+  const key = compose(when(gt(10), v => `0${v}`),luhn)(sex + year + month + department + comm + ordre);
+
+  return [`${sex}${year}${month}${department}${comm}${ordre}${key}`, {
+    sex, year, month, department, comm, ordre, key
+  }]
 }
 
 
