@@ -1,6 +1,6 @@
 
 import luhn from './luhn';
-import { length, equals, indexOf, replace, splitAt, when, compose, propOr, head, applySpec, gt, is } from 'ramda';
+import { length, equals, indexOf, replace, splitAt, when, compose, propOr, head, applySpec, gt, is, slice, join, map } from 'ramda';
 import { getYears } from './year';
 import getMonths from './month';
 import shuffle from './shuffle';
@@ -22,7 +22,13 @@ export const validateNIR = (nir) => {
 
 const getFirstOfArrayShuffle  = compose(head, shuffle);
 const toString = v => `${v}`
-const randomCent = () => compose(toString, when( gt(100), v => `0${v}`), parseInt)(Math.floor(Math.random(1) * 1000));
+const randomInt = () => Math.floor(Math.random(1) * 10);
+const randomCent = () => compose(
+  toString,
+  join(''),
+  map(randomInt),
+  v=> new Array(v)
+  )(3);
 
 
 export const generateNIR = (props) => {
@@ -36,6 +42,7 @@ export const generateNIR = (props) => {
       toString,
       replace('2a', '19'),
       replace('2b','18'),
+      slice(0, 2),
       when(is(Number), toString),
       propOr(getFirstOfArrayShuffle(getNumberOfDepartments()), 'department')),
     comm: propOr(randomCent(), 'comm'),
