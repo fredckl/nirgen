@@ -1,3 +1,11 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+div {
+  box-sizing: content-box;
+}
+
 .App {
   background-color: #282c34;
   min-height: 100vh;
@@ -13,22 +21,29 @@
 
 .page {
   margin: auto;
-  width: 100%;
+  width: 50%;
 }
 
-.form {
+.form-container {
   width: 100%;
-  padding: 12px;
+  flex-basis: content;
   display: flex;
   flex-direction: row;
 }
 
-.text-center {
+.form-nir {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.form-nir .text-center {
   text-align: center;
 }
 
 select {
   padding: 1rem;
+  border-radius: 5px;
+  border-width: 0;
 }
 
 button {
@@ -36,6 +51,10 @@ button {
   background-color: yellow;
   width: 100%;
   text-transform: uppercase;
+  border-radius: 5px;
+  box-shadow: none;
+  border-width: 0;
+  /* margin-bottom: 1rem; */
 }
 
 .form-error {
@@ -52,14 +71,46 @@ input {
   width: 100%;
 }
 
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.title:before {
+  content: '•';
+}
+
+.title:after {
+  content: '•';
+}
+
+.title:before,
+.title:after {
+  margin: 0 1rem;
+}
+
 .result {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   background-color: #444;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   border-radius: 10px;
   font-size: 2rem;
   cursor: pointer;
+  margin-right: 1rem;
+  min-height: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
+    flex-direction: column;
+  }
+
+  .result {
+    margin-top: 1rem;
+    border-radius: 0;
+  }
 }

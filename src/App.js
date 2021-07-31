@@ -1,7 +1,8 @@
 // import logo from './logo.svg';
+import './css/reset.css';
+import './css/toastr.css'
 import './App.css';
 import NirForm from './components/NirForm';
-import './css/toastr.css'
 
 function App() {
   return (
