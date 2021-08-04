@@ -69,7 +69,7 @@ const NirForm = () => {
           </div>
 
           <div>
-            <button type="submit">générer</button>
+            <button type="submit" id="btn-gen">générer</button>
           </div>
         </form>
         <CopyToClipboard onCopy={() => nir && toastr.success('Copié')} text={nir}>
