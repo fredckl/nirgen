@@ -2,8 +2,6 @@ version: '3'
 
 services:
   nirgen:
-    container_name: 'nirgen'
-    # command: yarn build
     build:
       context: .
       dockerfile: Dockerfile
