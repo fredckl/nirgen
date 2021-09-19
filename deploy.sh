@@ -3,6 +3,8 @@
 # abort on errors
 set -e
 
+export PUBLIC_URL='/nirgen'
+
 # build
 yarn build
 
