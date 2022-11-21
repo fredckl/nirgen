@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { map } from 'ramda';
 
-const dMin = moment.duration(1, 'y');
+const dMin = moment.duration(0, 'y');
 const dMax = moment.duration(120, 'y');
 
 export const getMajorYear = () => moment().subtract(dMin).format('YY');
@@ -21,6 +21,6 @@ export const getYears = () => {
       value: my.format('YY')
     }
   }
-  return map(formatDate)(arrayYears)
+  return (map(formatDate)(arrayYears)).reverse()
 }
 
