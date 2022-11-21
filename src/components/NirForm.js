@@ -38,9 +38,9 @@ const NirForm = () => {
           <div className="form-control">
             <select id="year" {...register('year')}>
               <option value="">-- Année --</option>
-              {getYears().map((v) => (
-                <option key={v} value={v}>
-                  {v}
+              {getYears().map(({label, value}) => (
+                <option key={value} value={value}>
+                  {label}
                 </option>
               ))}
             </select>

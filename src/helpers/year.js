@@ -1,18 +1,26 @@
 import moment from 'moment';
 import { map } from 'ramda';
 
-const d18 = moment.duration(16, 'y');
-const d50 = moment.duration(65, 'y');
+const dMin = moment.duration(1, 'y');
+const dMax = moment.duration(120, 'y');
 
-export const getMajorYear = () => moment().subtract(d18).format('YY');
+export const getMajorYear = () => moment().subtract(dMin).format('YY');
 
 export const getYears = () => {
-  const a18 = moment().subtract(d18).format('YYYY');
-  let a50 = moment().subtract(d50).format('YYYY');
+  const aMin = moment().subtract(dMin).format('YYYY');
+  let aMax = moment().subtract(dMax).format('YYYY');
   const arrayYears = []
-  while (a50 <= a18) {
-    arrayYears.push(a50++)
+  while (aMax <= aMin) {
+    arrayYears.push(aMax++)
   }
-  return map(year => moment(`${year}-01-01`).format('YY'))(arrayYears)
+
+  const formatDate = year => {
+    const my = moment(`${year}-01-01`);
+    return {
+      label: my.format('YYYY'),
+      value: my.format('YY')
+    }
+  }
+  return map(formatDate)(arrayYears)
 }
 
