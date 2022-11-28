@@ -1,5 +1,5 @@
 import departments from '../data/departments.json';
-import { compose, map, prop, sortBy } from 'ramda';
+import {compose, map, prop, sortBy} from 'ramda';
 
 export const getNumberOfDepartments = () => map(prop('num_dep'))(departments);
 export const getZipDepartments = () => compose(

@@ -1,6 +1,23 @@
 
 import luhn from './luhn';
-import { length, equals, indexOf, replace, splitAt, when, compose, propOr, head, applySpec, gt, is, slice, join, map } from 'ramda';
+import {
+  length,
+  equals,
+  indexOf,
+  replace,
+  splitAt,
+  when,
+  compose,
+  propOr,
+  head,
+  applySpec,
+  gt,
+  is,
+  slice,
+  join,
+  map,
+  toUpper
+} from 'ramda';
 import { getYears } from './year';
 import getMonths from './month';
 import shuffle from './shuffle';
@@ -40,9 +57,10 @@ export const generateNIR = (props) => {
     month: propOr(getFirstOfArrayShuffle(getMonths), 'month'),
     department: compose(
       toString,
-      replace('2a', '19'),
-      replace('2b','18'),
+      replace('2A', '19'),
+      replace('2B','18'),
       slice(0, 2),
+      toUpper,
       when(is(Number), toString),
       propOr(getFirstOfArrayShuffle(getNumberOfDepartments()), 'department')),
     comm: propOr(randomCent(), 'comm'),
@@ -51,8 +69,13 @@ export const generateNIR = (props) => {
 
   const key = compose(when(gt(10), v => `0${v}`),luhn)(sex + year + month + department + comm + ordre);
 
-  return [`${sex}${year}${month}${department}${comm}${ordre}${key}`, {
-    sex, year, month, department, comm, ordre, key
+  const replaceCorseDpt = compose(
+    replace('19', '2A'),
+    replace('18', '2B')
+  )(department)
+
+  return [`${sex}${year}${month}${replaceCorseDpt}${comm}${ordre}${key}`, {
+    sex, year, month, department: replaceCorseDpt, comm, ordre, key
   }]
 }
 

@@ -39,7 +39,7 @@ const NirForm = () => {
             <select id="year" {...register('year')}>
               <option value="">-- Année --</option>
               {getYears().map(({label, value}) => (
-                <option key={value} value={value}>
+                <option key={`${value}-${label}`} value={value}>
                   {label}
                 </option>
               ))}
