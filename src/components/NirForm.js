@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { generateNIR } from '../helpers/nir';
-import { getYears } from '../helpers/year';
-import getMonths from '../helpers/month';
-import { getZipDepartments } from '../helpers/department';
-import removeNilAndEmpty from '../helpers/removeNilAndEmpty';
 import { compose } from 'ramda';
+import React, { useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { useForm } from 'react-hook-form';
 import toastr from 'toastr';
+import { getZipDepartments } from '../helpers/department';
+import getMonths from '../helpers/month';
+import { generateNIR } from '../helpers/nir';
+import populateNilOrEmpty from '../helpers/populateNilOrEmpty';
+import { getYears } from '../helpers/year';
 
 const NirForm = () => {
   const [nir, setNir] = useState(null);
@@ -15,7 +15,7 @@ const NirForm = () => {
   const { handleSubmit, register } = useForm();
 
   const onSubmit = (values) => {
-    const [nir, data] = compose(generateNIR, removeNilAndEmpty)(values);
+    const [nir, data] = compose(generateNIR, populateNilOrEmpty)(values);
     setNir(nir);
     setNirObj(data);
   };
