@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "https://fredckl.github.io/nirgen/static/css/main.fb38ee27.chunk.css",
+    "main.js": "https://fredckl.github.io/nirgen/static/js/main.2a4c5f04.chunk.js",
+    "main.js.map": "https://fredckl.github.io/nirgen/static/js/main.2a4c5f04.chunk.js.map",
+    "runtime-main.js": "https://fredckl.github.io/nirgen/static/js/runtime-main.3a32fe6e.js",
+    "runtime-main.js.map": "https://fredckl.github.io/nirgen/static/js/runtime-main.3a32fe6e.js.map",
+    "static/js/2.253dbb53.chunk.js": "https://fredckl.github.io/nirgen/static/js/2.253dbb53.chunk.js",
+    "static/js/2.253dbb53.chunk.js.map": "https://fredckl.github.io/nirgen/static/js/2.253dbb53.chunk.js.map",
+    "static/js/3.487c5b89.chunk.js": "https://fredckl.github.io/nirgen/static/js/3.487c5b89.chunk.js",
+    "static/js/3.487c5b89.chunk.js.map": "https://fredckl.github.io/nirgen/static/js/3.487c5b89.chunk.js.map",
+    "index.html": "https://fredckl.github.io/nirgen/index.html",
+    "static/css/main.fb38ee27.chunk.css.map": "https://fredckl.github.io/nirgen/static/css/main.fb38ee27.chunk.css.map",
+    "static/js/2.253dbb53.chunk.js.LICENSE.txt": "https://fredckl.github.io/nirgen/static/js/2.253dbb53.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a32fe6e.js",
+    "static/js/2.253dbb53.chunk.js",
+    "static/css/main.fb38ee27.chunk.css",
+    "static/js/main.2a4c5f04.chunk.js"
+  ]
+}
